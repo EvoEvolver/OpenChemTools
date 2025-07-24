@@ -8,14 +8,15 @@ COPY . .
 
 RUN apk add --no-cache \
     git \
-    pkgconfig \
-    hdf5-dev \
-    openblas-dev \
-    musl-dev \
     cmake \
     make \
     gcc \
-    g++
+    g++ \
+    pkgconfig \
+    hdf5-dev \
+    openblas-dev \
+    musl-dev
+
 
 # Install dependencies
 RUN uv pip install --system -e .
