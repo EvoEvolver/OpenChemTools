@@ -8,6 +8,10 @@ COPY . .
 
 RUN apk add --no-cache git
 RUN apk add --no-cache pkgconfig
+RUN apk apk add --no-cache \
+                           hdf5-dev \
+                           openblas-dev \
+                           musl-dev
 # Install dependencies
 RUN uv pip install --system -e .
 
