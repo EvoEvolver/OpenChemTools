@@ -6,12 +6,13 @@ WORKDIR /app
 # Copy the rest of the application files
 COPY . .
 
-RUN apk add --no-cache git
-RUN apk add --no-cache pkgconfig
-RUN apk apk add --no-cache \
-                           hdf5-dev \
-                           openblas-dev \
-                           musl-dev
+RUN apk add --no-cache \
+    git \
+    pkgconfig \
+    hdf5-dev \
+    openblas-dev \
+    musl-dev \
+
 # Install dependencies
 RUN uv pip install --system -e .
 
