@@ -12,14 +12,18 @@ RUN apk add --no-cache \
     make \
     gcc \
     g++ \
+    gfortran \
     pkgconfig \
     hdf5-dev \
     openblas-dev \
+    lapack-dev \
+    fftw-dev \
     musl-dev
 
 
 # Install dependencies
 RUN uv pip install --system -e .
+RUN uv pip install --system --prefer-binary pyscf
 
 # Expose default Node.js port
 EXPOSE 8000
