@@ -11,7 +11,11 @@ RUN apk add --no-cache \
     pkgconfig \
     hdf5-dev \
     openblas-dev \
-    musl-dev
+    musl-dev \
+    cmake \
+    make \
+    gcc \
+    g++
 
 # Install dependencies
 RUN uv pip install --system -e .
