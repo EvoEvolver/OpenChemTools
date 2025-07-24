@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 RUN apk add --no-cache git
-RUN apk add --no-cache pkg-config
+RUN apk add --no-cache pkgconfig
 # Install dependencies
 RUN uv pip install --system -e .
 
