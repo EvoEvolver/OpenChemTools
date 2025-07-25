@@ -7,5 +7,7 @@ requires-python = ">=3.11"
 dependencies = [
     "numpy>=2.3.2",
     "pyscf>=2.10.0",
+    "rdkit-pypi>=2022.9.5",
+    "requests>=2.32.4",
     "simpletooling @ git+https://github.com/EvoEvolver/simpletooling.git",
 ]
