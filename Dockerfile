@@ -1,4 +1,4 @@
-FROM ghcr.io/astral-sh/uv:python3.12-alpine
+FROM python:3.11-slim
 
 # Set working directory
 WORKDIR /app
@@ -6,24 +6,17 @@ WORKDIR /app
 # Copy the rest of the application files
 COPY . .
 
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libblas-dev \
+    liblapack-dev \
+    libgfortran5 \
     git \
-    cmake \
-    make \
-    gcc \
-    g++ \
-    gfortran \
-    pkgconfig \
-    hdf5-dev \
-    openblas-dev \
-    lapack-dev \
-    fftw-dev \
-    musl-dev
+    && rm -rf /var/lib/apt/lists/*
 
 
 # Install dependencies
-RUN uv pip install --system -e .
-RUN uv pip install --system --prefer-binary pyscf
+RUN pip install -e .
 
 # Expose default Node.js port
 EXPOSE 8000
